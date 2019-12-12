@@ -12,14 +12,15 @@ namespace Julekalender.Utilities
     public class KnowledgeApi
     {
         private string GetKnowledgeLink = "https://localhost:44374/api/Knowledges";
+        private string StationærLinkAPi = "https://localhost:44357/api/tipps";
 
 
-        public List<Knowledge> GetKnowledges()
+        public List<Tipp> GetKnowledges()
         {
             string json;
-            List<Knowledge> knowledges = new List<Knowledge>();
+            List<Tipp> knowledges = new List<Tipp>();
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(GetKnowledgeLink);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(StationærLinkAPi);
             request.Method = "GET";
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -29,7 +30,7 @@ namespace Julekalender.Utilities
                 json = reader.ReadToEnd();
             }
 
-            knowledges = JsonConvert.DeserializeObject<List<Knowledge>>(json);
+            knowledges = JsonConvert.DeserializeObject<List<Tipp>>(json);
 
             return knowledges;
 

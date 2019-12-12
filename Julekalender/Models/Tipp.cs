@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Julekalender.Models
 {
-    public class Knowledge
+    public class Tipp
     {
-        public int KnowledgeID { get; set; }
-        public string Tipp { get; set; }
+        public int TippID { get; set; }
+        public string Content { get; set; }
     }
 }

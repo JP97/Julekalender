@@ -14,6 +14,6 @@ namespace Julekalender.Data
 
         }
 
-        public DbSet<Knowledge> knowledges { get; set; }
+        public DbSet<Tipp> Tipps { get; set; }
     }
 }

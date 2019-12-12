@@ -18,15 +18,19 @@ namespace Julekalender.Controllers
         {
             _context = context;
 
-            if (!_context.knowledges.Any())
+            if (!_context.Tipps.Any())
             {
-                _context.knowledges.AddRange(api.GetKnowledges());
+                _context.Tipps.AddRange(api.GetKnowledges());
                 _context.SaveChangesAsync();
             }
         }
         public IActionResult Index()
         {
-            return View(_context.knowledges.ToList());
+            var tipps = _context.Tipps;
+
+            ViewBag.Tipp = tipps;
+
+            return View(tipps);
         }
     }
 }
